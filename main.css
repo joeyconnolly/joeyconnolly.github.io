@@ -31,7 +31,7 @@ header p {
 .jumbotron {
   display: flex;
   align-items: center;
-  background-image: url('banner.jpg');
+  background-image: url('https://github.com/joeyconnolly/joeyconnolly.github.io/banner.JPG');
   background-size: cover;
   color: #ffffff;
   height: 500px;
