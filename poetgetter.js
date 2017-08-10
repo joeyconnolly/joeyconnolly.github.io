@@ -1,8 +1,7 @@
 function getPoem(){
 
   //clear what's there already
-  
-  var name = sheet.getRange(5,5).getValue()
+  var name = document.getElementById('filename').value;
   var format = name.toLowerCase().replace(/[^a-z]/gi,"-")
   var url = "https://www.poetryfoundation.org/poets/"+format+"#about"
   var poetPage = UrlFetchApp.fetch(url, {'muteHttpExceptions': true});
