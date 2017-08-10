@@ -1,7 +1,7 @@
-
-
 function getPoem(){
-  sheet.getRange('E21:E23').clearContent()
+
+  //clear what's there already
+  
   var name = sheet.getRange(5,5).getValue()
   var format = name.toLowerCase().replace(/[^a-z]/gi,"-")
   var url = "https://www.poetryfoundation.org/poets/"+format+"#about"
