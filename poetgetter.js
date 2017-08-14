@@ -4,6 +4,11 @@ function print(){
   return null;
 }
 
+function print2(){
+  var input = document.getElementById('filename').value;
+  document.getElementById("message").innerHTML = "So there you go!";
+  return null;
+}
 function getPoem(){
 
   //clear what's there already
