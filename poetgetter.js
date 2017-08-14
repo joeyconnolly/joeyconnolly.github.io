@@ -1,6 +1,6 @@
 function print(){
   var input = document.getElementById('filename').value;
-  document.getElementById("message").innerHTML = input;
+  document.getElementById("message").innerHTML = input + ". So there you go!";
   return null;
 }
 
