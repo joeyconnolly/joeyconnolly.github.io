@@ -2,7 +2,7 @@ function print(){
   document.getElementById("poemBody").innerHTML = "No poem found yet";
   var name = document.getElementById('filename').value;
   var format = name.toLowerCase().replace(/[^a-z]/gi,"-")
-  var url = "https://www.poetryfoundation.org/poets/"+format"
+  var url = "https://www.poetryfoundation.org/poets/"+format
   
   document.getElementById("message").innerHTML = url;
   
