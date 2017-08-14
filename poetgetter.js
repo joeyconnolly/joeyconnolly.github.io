@@ -21,7 +21,7 @@ function print(){
     document.getElementById("poemBody").innerHTML = poemText;
   
   } else { // ie if no links found
-    sheet.getRange('E21').setValue("None found!")
+    document.getElementById("poemBody").innerHTML = "Nothing found!";
   }
   
   
