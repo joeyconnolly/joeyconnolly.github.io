@@ -1,3 +1,9 @@
+function print(){
+  var input = document.getElementById('filename').value;
+  document.getElementById("message").innerHTML = input;
+  return null;
+}
+
 function getPoem(){
 
   //clear what's there already
