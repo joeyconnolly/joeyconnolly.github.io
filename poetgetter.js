@@ -1,10 +1,10 @@
 function print(){
-  // todo: clear what's already there
+  document.getElementById("poemBody").innerHTML = "No poem found yet";
   var name = document.getElementById('filename').value;
   var format = name.toLowerCase().replace(/[^a-z]/gi,"-")
   var url = "https://www.poetryfoundation.org/poets/"+format+"#about"
-  document.getElementById("message").innerHTML = url;
   
+  document.getElementById("message").innerHTML = url;
   
   var poetPage = UrlFetchApp.fetch(url, {'muteHttpExceptions': true});
   var poetText = poetPage.getContentText()
