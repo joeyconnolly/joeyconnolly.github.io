@@ -5,7 +5,7 @@ function print(){
   var url = "https://www.poetryfoundation.org/poets/"+format+"#about"
   document.getElementById("message").innerHTML = url;
   
-  /*
+  
   var poetPage = UrlFetchApp.fetch(url, {'muteHttpExceptions': true});
   var poetText = poetPage.getContentText()
   var links = poetText.match(/https\:\/\/www\.poetryfoundation\.org\/poems\/\d[^\"]+/gi)
@@ -17,13 +17,13 @@ function print(){
     var title = /\<title>(.+)\s\|/gi.exec(poemPage)[1]
     var poemHTML = /data\-view\=\"PoemView\">([\s\S]+)<div\sclass\=\"o\-grid/gi.exec(poemPage)[1]
     var poemText = poemHTML.replace(/^\s+/,"").replace(/<br>/g,"\n").replace(/\<.+?\>/g,"")
-    sheet.getRange('E21').setValue(title)
-    sheet.getRange('E23').setValue("  "+poemText)
+    document.getElementById("poemHead").innerHTML = title;
+    document.getElementById("poemBody").innerHTML = poemText;
   
   } else { // ie if no links found
     sheet.getRange('E21').setValue("None found!")
   }
-  */
+  
   
 }
 
