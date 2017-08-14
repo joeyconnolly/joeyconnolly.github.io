@@ -1,15 +1,11 @@
 function print(){
-  var input = document.getElementById('filename').value;
-  document.getElementById("message").innerHTML = input + ". So there you go!";
+  var name = document.getElementById('filename').value;
+  var format = name.toLowerCase().replace(/[^a-z]/gi,"-")
+  var url = "https://www.poetryfoundation.org/poets/"+format+"#about"
+  document.getElementById("message").innerHTML = url;
   return null;
 }
 
-function print2(){
-  var input = document.getElementById('filename').value;
-  document.getElementById("message").innerHTML = "So there you go!";
-  return null;
-}
-function getPoem(){
 
   //clear what's there already
   var name = document.getElementById('filename').value;
