@@ -1,13 +1,10 @@
 function print(){
+  // todo: clear what's already there
   var name = document.getElementById('filename').value;
   var format = name.toLowerCase().replace(/[^a-z]/gi,"-")
   var url = "https://www.poetryfoundation.org/poets/"+format+"#about"
   document.getElementById("message").innerHTML = url;
-  return null;
-}
-
-
-  //clear what's there already
+  
   var name = document.getElementById('filename').value;
   var format = name.toLowerCase().replace(/[^a-z]/gi,"-")
   var url = "https://www.poetryfoundation.org/poets/"+format+"#about"
@@ -28,10 +25,11 @@ function print(){
   } else { // ie if no links found
     sheet.getRange('E21').setValue("None found!")
   }
-    
-
+  
 }
 
+
+  
 //*** EXTRA UTILITY FUNCTIONS ***//
 
 // adding strip() function to Array.prototype, which flattens a 2d array and removes blanks
