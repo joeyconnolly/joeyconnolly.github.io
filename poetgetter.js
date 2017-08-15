@@ -6,7 +6,13 @@ function print(){
   
   document.getElementById("message").innerHTML = url;
   
-  var poetPage = UrlFetchApp.fetch(url, {'muteHttpExceptions': true});
+  try {
+    var poetPage = UrlFetchApp.fetch(url, {'muteHttpExceptions': true});
+  }
+  catch(err) {
+      document.getElementById("poemHead").innerHTML = err.message;
+  }
+  
   var poetText = poetPage.getContentText()
   var links = poetText.match(/https\:\/\/www\.poetryfoundation\.org\/poems\/\d[^\"]+/gi)
   document.getElementById("poemHead").innerHTML = "first link: "+links[0];
