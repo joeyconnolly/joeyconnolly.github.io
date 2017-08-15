@@ -9,7 +9,7 @@ function print(){
   var poetPage = UrlFetchApp.fetch(url, {'muteHttpExceptions': true});
   var poetText = poetPage.getContentText()
   var links = poetText.match(/https\:\/\/www\.poetryfoundation\.org\/poems\/\d[^\"]+/gi)
-  document.getElementById("poemHead").innerHTML = links[0];
+  document.getElementById("poemHead").innerHTML = "first link: "+links[0];
   
   if(links!=null){
     
