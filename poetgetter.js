@@ -1,6 +1,7 @@
 function print(){
   
-  document.getElementById("version").innerHTML = "2.0";
+
+  document.getElementById("version").innerHTML = "2.1";
   
   document.getElementById("poemBody").innerHTML = "No poem found yet";
   var name = document.getElementById('filename').value;
@@ -8,14 +9,14 @@ function print(){
   var url = "https://www.poetryfoundation.org/poets/"+format
   
   document.getElementById("message").innerHTML = url;
+
+  var xhr = new XMLHttpRequest();
+  xhr.open("GET", url, true);
+  var poemText = xhr.repsonse
   
-  try {
-    var poetPage = UrlFetchApp.fetch(url, {'muteHttpExceptions': true});
-  }
-  catch(err) {
-      document.getElementById("poemHead").innerHTML = err.message;
-  }
+  document.getElementById("poemBody").innterHTML = poemText
   
+/*  var poetPage = UrlFetchApp.fetch(url, {'muteHttpExceptions': true});
   var poetText = poetPage.getContentText()
   var links = poetText.match(/https\:\/\/www\.poetryfoundation\.org\/poems\/\d[^\"]+/gi)
   document.getElementById("poemHead").innerHTML = "first link: "+links[0];
@@ -34,6 +35,7 @@ function print(){
     document.getElementById("poemBody").innerHTML = "Nothing found!";
   }
   
+  */
   
 }
 
@@ -45,28 +47,4 @@ function print(){
 
 Array.prototype.strip = function(){
   return this.map(function(a) { return a[0] }).filter(function(a) { return a!="" })  
-}
-
-// a function to create a google doc with the 'text' param as its content
-
-function makeDoc(text) {
-  var doc = DocumentApp.openById(DocumentApp.create(sheet.getRange(5,5).getValue()+" poem").getId());
-  doc.getBody().appendParagraph(text)
-  doc.saveAndClose()
-  return doc.getId()
-}
-
-// a function to format all initials, so WH => W. H.
-
-function formatNames(){
-  var poets = sheet.getRange('A2:A').getValues().strip()
-  var arr = poets.map(function(a){
-    if(/^[A-Z]{2}$/.exec(first)){
-      var split = a.split(" ")
-      var first = split[0]
-      var rest = split.slice(1).join(" ")
-      return [first[0]+". "+first[1]+". "+rest]
-    } else return [a]
-  })
-  sheet.getRange(2,1,1253,1).setValues(arr)
 }
