@@ -1,8 +1,8 @@
+document.getElementById("version").innerHTML = "2.2";
+
 function print(){
   
 
-  document.getElementById("version").innerHTML = "2.1";
-  
   document.getElementById("poemBody").innerHTML = "No poem found yet";
   var name = document.getElementById('filename').value;
   var format = name.toLowerCase().replace(/[^a-z]/gi,"-")
