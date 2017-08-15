@@ -1,7 +1,25 @@
+/* EXAMPLE FROM WEB
 
+var xhr = new XMLHttpRequest();
+xhr.open('GET', '/server', true);
+
+// If specified, responseType must be empty string or "text"
+xhr.responseType = 'text';
+
+xhr.onload = function () {
+    if (xhr.readyState === xhr.DONE) {
+        if (xhr.status === 200) {
+            console.log(xhr.response);
+            console.log(xhr.responseText);
+        }
+    }
+};
+xhr.send(null);
+
+*/
 
 function print(){
-  document.getElementById("version").innerHTML = "Version: 2.2";
+  document.getElementById("version").innerHTML = "Version: 2.3";
 
   document.getElementById("poemBody").innerHTML = "No poem found yet";
   var name = document.getElementById('filename').value;
@@ -12,7 +30,7 @@ function print(){
 
   var xhr = new XMLHttpRequest();
   xhr.open("GET", url, true);
-  var poemText = xhr.repsonse
+  var poemText = xhr.responseText;
   
   document.getElementById("poemBody").innterHTML = poemText
   
