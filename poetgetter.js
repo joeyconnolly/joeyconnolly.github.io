@@ -1,7 +1,7 @@
-document.getElementById("version").innerHTML = "Version: 2.2";
+
 
 function print(){
-  
+  document.getElementById("version").innerHTML = "Version: 2.2";
 
   document.getElementById("poemBody").innerHTML = "No poem found yet";
   var name = document.getElementById('filename').value;
