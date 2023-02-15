@@ -1,67 +1,70 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-  <title>Joey Connolly</title>
-  <meta charset="utf-8"/>
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
-  <link href='https://fonts.googleapis.com/css?family=Roboto:300,400,700' rel='stylesheet' type='text/css'>
-  <link rel="stylesheet" type="text/css" href="main.css">
+  <link rel="stylesheet" type="text/css" href="interface.css" />
+
+
+  <title>A Poetry Incremental Game</title>
 </head>
 <body>
-  <header class="container">
-    <div class="row">
-      <h1 class="col-sm-4">Joey Connolly</h1>
-      	<nav class="col-sm-8 text-right">
-          <p><a href="poems.html">poems</a></p>
-          <p>about</p>
-          <p>coding</p>
-        </nav>
-      </div>
-  </header>
-  <section class="jumbotron">
-    <div class="container">
-    <div class="row text-center">
-    	<h3>[poems | reviews | salty opinions | amateur coding]</h3>
-        <a class="btn btn-primary" href="#" role="button">Show me a poem</a>
-    </div>
-    </div>
-  </section>
 
-  <section class="container" id="pageLinks">
-    <div class="row">
-      <figure class="col-sm-6">
-        <p>poems</p>
-        <img src="https://s3.amazonaws.com/spoonflower/public/design_thumbnails/0468/5032/DIGITAL_PATTERN_WRITING_SCRIBBLES-01_preview.png">
-      </figure>
-      <figure class="col-sm-6">
-        <p>about</p>
-        <img src="http://zombierightscampaign.org/images/reviews/hordeshirt1.jpg"/>
-      </figure>
-    </div>
-    <div class="row">
-      <figure class="col-sm-6">
-        <p>reviews</p>
-        <img src="http://dreamstop.com/wp-content/uploads/2013/07/Screaming-Dream-meaning.jpg"/>
-      </figure>
-      <figure class="col-sm-6">
-        <p>poetry utilities</p>
-        <img src="http://static1.squarespace.com/static/5572e6e3e4b013344d656d71/5574a4c3e4b0cc99e9030b0d/591ee5812e69cf4a4e0661c7/1495198338952/Computing%2C_programming_and_coding_in_schools.jpg?format=1000w"/>
-      </figure>
-    </div>
-  </section>
+ <p><button onclick="haveIdea(0.1)">Have an Idea</button>
+ You have thought of <span id="ideas">0</span> ideas.</p>
 
-  <footer class="container">
-    <div class="row">
-      <p class="col-sm-4">Website &copy; Joey Connolly</p>
-      <ul class="col-sm-8">
-        <li class="col-sm-1"><img src="https://s3.amazonaws.com/codecademy-content/projects/make-a-website/lesson-4/twitter.svg"></li>
-  	<li class="col-sm-1"><img src="https://s3.amazonaws.com/codecademy-content/projects/make-a-website/lesson-4/facebook.svg"></li>
-  	<li class="col-sm-1"><img src="https://s3.amazonaws.com/codecademy-content/projects/make-a-website/lesson-4/instagram.svg"></li>
-  	<li class="col-sm-1"><img src="https://s3.amazonaws.com/codecademy-content/projects/make-a-website/lesson-4/medium.svg"></li>
-      </ul>
-    </div>
-  </footer>
+<p>*</p>
+<p><button onclick="developNoticing(1)">Develop noticing faculties</button>
+ You have <span id="faculties">0</span> noticing faculties.</p>
+ 
+<p> Each noticing faculty gives you 0.1 idea per second. Developing your noticing faculties will take <span id="facultiesCost">1</span> ideas</p>
+<p>*</p>
 
+<p><button onclick="writeBadPoem(1)">Write a Bad Poem</button>
+You have <span id="badPoems">0</span> bad poems.</p> 
+<p>Writing a bad poem takes 1 idea.</p>
+
+<p>*</p>
+<p><button onclick="writeOkayPoem(1)">Write an Okay Poem</button>
+You have <span id="okayPoems">0</span> okay poems.</p> 
+<p>Writing an okay poem takes 3 ideas.</p>
+
+<p>*</p>
+<p><button onclick="writeGoodPoem(1)">Write a Good Poem</button>
+You have <span id="goodPoems">0</span> good poems.</p> 
+<p>Writing an okay poem takes 10 ideas.</p>
+
+<p>*</p>
+
+<p>Submit a
+
+<select id="subPoemLevel">
+  <option value="badPoem">Bad Poem</option>
+  <option value="okayPoem">Okay Poem</option>
+  <option value="goodPoem">Good Poem</option>
+</select>
+
+to
+
+<select id="subMagazine">
+  <option value="brittleStar">Brittle Star</option>
+  <option value="magma">Magma</option>
+  <option value="poetryReview">Poetry Review</option>
+</select>
+
+<button onclick="submitPoem()">Submit</button>
+
+</p>
+
+<p>Result: <span id="subResult"> </span> </p>
+
+
+<p>Log Value: <span id="logger"> </span> </p>
+
+
+<script type="text/javascript" src="main.js"></script>
 
 </body>
 </html>
+
+
+
