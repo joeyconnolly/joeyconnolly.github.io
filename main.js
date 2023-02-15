@@ -6,6 +6,10 @@ var faculties = 0;
 var badPoems = 0;
 var okayPoems = 0;
 var goodPoems = 0;
+var poemsInBrittleStar = 0;
+var poemsInMagma = 0;
+var poemsInPoetryReview = 0;
+var reputation = 0
 
 function haveIdea(num){
 	ideas = ideas + num;	
@@ -14,14 +18,16 @@ function haveIdea(num){
 
 
 function developNoticing(num){
-    var facultiesCost = Math.floor(1 * Math.pow(2,faculties));     //works out the cost of this cursor
-    if(ideas >= facultiesCost){                                   //checks that the player can afford the cursor
-        faculties = faculties + 1;                                   //increases number of cursors
-    	ideas = ideas - facultiesCost;                          //removes the cookies spent
-        document.getElementById('faculties').innerHTML = prettify(faculties);  //updates the number of cursors for the user
-        document.getElementById('ideas').innerHTML = prettify(ideas);  //updates the number of cookies for the user
+	ideas = prettify(ideas);
+	
+    var facultiesCost = Math.floor(1 * Math.pow(2,faculties));  			//works out the cost of this cursor
+	if(ideas >= facultiesCost){                                   				//checks that the player can afford the cursor
+        faculties = faculties + 1;                                   			//increases number of cursors
+    	ideas = ideas - facultiesCost;                          				//removes the cookies spent
+        document.getElementById('faculties').innerHTML = prettify(faculties); 	 //updates the number of cursors for the user
+        document.getElementById('ideas').innerHTML = prettify(ideas); 			 //updates the number of cookies for the user
     };
-    var nextCost = (1 * Math.pow(2,faculties));       //works out the cost of the next cursor
+    var nextCost = (1 * Math.pow(2,faculties));     						  //works out the cost of the next cursor
     document.getElementById('facultiesCost').innerHTML = prettify(nextCost);  //updates the cursor cost for the user
 };
 
@@ -55,7 +61,10 @@ function writeGoodPoem(num){
     };
 };
 
+		//SUBMIT POEMS
+
 function submitPoem(){
+	
 	var subPoemLevel = document.getElementById('subPoemLevel');
 	var subMagazine = document.getElementById('subMagazine');
 	var result = ""
@@ -79,6 +88,11 @@ function submitPoem(){
 		if(subMagazine.value == "brittleStar") {
 			
 			result = "Your poem was accepted!"
+			poemsInBrittleStar = poemsInBrittleStar + 1;
+			document.getElementById('poemsInBrittleStar').innerHTML = prettify(poemsInBrittleStar);
+			reputation = reputation + 1;
+			document.getElementById('reputation').innerHTML = prettify(reputation);
+			
 			
 		} else {
 			
@@ -105,10 +119,22 @@ function submitPoem(){
 		
 			result = "Your poem was rejected!"
 
-		} else {
+		} else if (subMagazine.value == "brittleStar") {
 
 			result = "Your poem was accepted!"
-
+			poemsInBrittleStar = poemsInBrittleStar + 1;
+			document.getElementById('poemsInBrittleStar').innerHTML = prettify(poemsInBrittleStar);
+			reputation = reputation + 1;
+			document.getElementById('reputation').innerHTML = prettify(reputation);
+			
+		} else {
+			
+			result = "Your poem was accepted!"
+			poemsInMagma = poemsInMagma + 1;
+			document.getElementById('poemsInMagma').innerHTML = prettify(poemsInMagma);
+			reputation = reputation + 3;
+			document.getElementById('reputation').innerHTML = prettify(reputation);
+			
 		}
 		
 	}
@@ -120,10 +146,25 @@ function submitPoem(){
 			document.getElementById('subResult').innerHTML = result;	
 			return;
 		} else {
-			
 			goodPoems = goodPoems - 1;
 			document.getElementById('goodPoems').innerHTML = prettify(goodPoems);
-		
+		}
+
+		if(subMagazine.value == "poetryReview"){
+			poemsInPoetryReview = poemsInPoetryReview + 1;
+			document.getElementById('poemsInPoetryReview').innerHTML = prettify(poemsInPoetryReview);
+			reputation = reputation + 7;
+			document.getElementById('reputation').innerHTML = prettify(reputation);
+		} else if (subMagazine.value == "brittleStar") {
+			poemsInBrittleStar = poemsInBrittleStar + 1;
+			document.getElementById('poemsInBrittleStar').innerHTML = prettify(poemsInBrittleStar);
+			reputation = reputation + 1;
+			document.getElementById('reputation').innerHTML = prettify(reputation);
+		} else {
+			poemsInMagma = poemsInMagma + 1;
+			document.getElementById('poemsInMagma').innerHTML = prettify(poemsInMagma);
+			reputation = reputation + 3;
+			document.getElementById('reputation').innerHTML = prettify(reputation);
 		}
 
 		result = "Your poem was accepted!"
@@ -160,3 +201,4 @@ function prettify(input){
     var output = Math.round(input * 1000000000)/1000000000;
 	return output;
 }
+
